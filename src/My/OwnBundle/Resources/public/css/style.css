@@ -1,0 +1,62 @@
+#header, #content{
+	width: 700px;
+	position: relative;
+	left: 150px;
+	background-color: #CCCCCC;
+}
+
+#content{
+	height:500px;
+}
+
+.logo a{
+	text-decoration: none;
+}
+
+.post-body{
+	border-style: solid;
+	border-color: black;
+	border-width:1px;
+}
+
+.section{
+border-style: solid;
+border-color: black;
+border-width:1px;
+height:60px;
+}
+
+.section p{
+position:relative;
+bottom:18px;
+}
+
+.post-options{
+float: right;
+display: inline;
+position: relative;
+bottom:20px;
+}
+
+
+.delete_section{
+position:relative;
+bottom:15px;
+}
+.post-options p{
+margin-top: 0px;
+margin-bottom: 0px;
+}
+
+.panel-options{
+	float: right;
+	position:relative;
+	bottom:20px;
+	display: inline;
+}
+
+.topic-link{
+border-style: solid;
+border-color: black;
+border-width:1px;
+}

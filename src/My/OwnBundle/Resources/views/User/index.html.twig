@@ -1,0 +1,22 @@
+{% extends "MyOwnBundle::layout.html.twig"%}
+
+{% block content %}
+	<div class ="panel-options">
+	</div>
+	<ul>
+		<table>
+			<th>Id</th>
+			<th>Username</th>
+			<th>Email</th>
+	{%for user in users %}
+				<tr>
+					<td>{{user.id}}</td>
+					<td><a href="{{path('user_edit', {'id': user.id} )}}">{{user.username}}</a></td>
+					<td>{{user.email}}</td>
+				</tr>
+					
+				
+	{% endfor %}
+	</table>
+</ul>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "MyOwnBundle::layout.html.twig"%}
+{% block content %}
+    <h1>Topic edit</h1>
+
+    <li> {{ form(edit_form) }} </li>
+		{{ form_errors(edit_form) }}
+    <li> {{ form(delete_form) }} </li>
+		
+{% endblock %}

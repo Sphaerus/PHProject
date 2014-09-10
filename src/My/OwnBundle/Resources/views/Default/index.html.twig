@@ -1,0 +1,22 @@
+{% extends "MyOwnBundle::layout.html.twig"%}
+
+{% block content %}
+	<div class ="panel-options">
+		{% if app.user != "" %}
+			{% if app.user.admin == TRUE%}
+				<a href="{{path("category_new")}}"> Add new category</a>
+			{% endif %}	
+		{% endif %}
+	</div>
+	<ul>
+	{%for category in categories %}
+				<li><a href ="{{path('category_show', {'id': category.id})}}">{{category.name}}</a></li>
+				<ul>
+					{%for section in category.sections %}
+						<li><a href="{{path('section_show', {'category_id': category.id, 'id': section.id})}}"> {{section.name}} </a></li>						
+						<p>{{section.description}}</p>
+					{% endfor %}
+				</ul>
+	{% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "MyOwnBundle::layout.html.twig"%}
+{% block content %}
+		<h3>{{section.name}}</h3>
+		<div class= "panel-options">
+			{% if app.user != ""%}
+				<a href ="{{ path("topic_new", {"category_id": section.category.id, "section_id": section.id})}}">New topic</a>
+			{% endif %}
+		</div>
+		{% for topic in section.topics %}
+			<div class="topic-link">
+				<p><a href="{{path('topic_show', {'category_id': section.category.id, 'section_id': section.id, 'id': topic.id })}}">{{topic.name}}</a></p>
+			</div>
+		{% endfor %}
+				<ul class="record_actions">
+					{% if app.user != "" %}
+						{% if app.user.admin == TRUE %}
+			        <p><a href="{{ path('section_edit', { 'category_id': section.category.id, 'id': section.id }) }}">Edit {{section.name}}</a></p>
+						{% endif %}	
+				{% endif %}
+		</ul>
+		
+{% endblock %}

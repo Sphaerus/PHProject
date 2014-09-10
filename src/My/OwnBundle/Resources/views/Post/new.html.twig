@@ -1,0 +1,7 @@
+{% extends "MyOwnBundle::layout.html.twig"%}
+{% block content -%}
+    <h1>Reply to: <a href="{{path('topic_show', {'category_id': topic.section.category.id, 'section_id': topic.section.id, 'id': topic.id})}}">{{ topic.name }}</a></h1>
+
+    {{ form(form) }}
+		{{form_errors(form)}}
+{% endblock %}

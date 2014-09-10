@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Forum</title>
+		<meta charset ="UTF-8"/>
+		<link rel="stylesheet" href="{{asset('bundles/myown/css/style.css')}}" media="screen"/>
+	</head>	
+	<body>
+		
+		<div id="header" class="logo">
+			<h1><a href="{{path('main_page')}}">EPIforum</a></h1>
+			{% if app.user == "" %}
+				<a href="{{path('fos_user_security_login')}}">Log in</a>
+				or
+				<a href="{{path('fos_user_registration_register')}}">Register</a>
+			{% else %}
+				{{app.user.username}}
+				<a href="/logout">Log out</a>
+				<a href="/profile">My profile</a>
+				{% if app.user.admin == TRUE %}
+					<a href="{{path('users')}}">Users</a>
+				{% endif %}	
+			{% endif %}
+		</div>
+		<div id="content">
+			{%block content %}
+			{% endblock %}
+		</div>
+	</body>
+</html>

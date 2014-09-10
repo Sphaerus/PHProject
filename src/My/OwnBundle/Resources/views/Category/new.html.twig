@@ -1,0 +1,15 @@
+{% extends "MyOwnBundle::layout.html.twig"%}
+{% block content -%}
+    <h1>Category creation</h1>
+
+    {{ form(form) }}
+		{{form_errors(form)}}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('main_page') }}">
+            Back to the main page
+        </a>
+    </li>
+</ul>
+{% endblock %}

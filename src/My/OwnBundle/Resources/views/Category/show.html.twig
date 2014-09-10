@@ -1,0 +1,30 @@
+{% extends "MyOwnBundle::layout.html.twig"%}
+{% block content -%}
+		<h1>{{entity.name}}</h1>
+		<div class ="sections">
+			{% for section in entity.sections %}
+				<div class = "section">
+					<p><a href="{{ path('section_show', { 'category_id': entity.id, 'id': section.id })}}"> {{section.name}}</a></p>
+						<div class ="post-options">
+							{% if app.user != "" %}
+								{% if app.user.admin == TRUE %}
+									<form class="delete_section" name="form" method="post" action="/category/{{entity.id}}/section/{{section.id}}/delete"><input type="hidden" name="_method" value="DELETE"><div id="form"><div><button type="submit" id="form_submit" name="form[submit]">Delete {{section.name}}</button></div><input type="hidden" id="form__token" name="form[_token]" value="t5MTBDHd3o5efueo-KeA4Hx4aeOue-Gce7G3DQlP7a8"></div></form>
+									<p><a href="{{ path('section_edit', { 'category_id': entity.id, 'id': section.id }) }}">Edit</a></p>
+								{% endif %}	
+							{% endif %}
+						</div>	
+					<p>{{section.description}}</p>
+				</div>	
+			{% endfor %}
+		</div>	
+		<ul class="record_actions">
+			{% if app.user != "" %}
+        {% if app.user.admin == TRUE %}
+	        <p><a href="{{ path('section_new', {'category_id': entity.id}) }}">Add new section</a></p>
+	        <p><a href="{{ path('category_edit', { 'id': entity.id }) }}">Edit {{entity.name}}</a></p>
+				
+	    {{ form(delete_form) }}
+			{% endif %}	
+		{% endif %}
+</ul>
+{% endblock %}

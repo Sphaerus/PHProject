@@ -1,0 +1,12 @@
+{% extends "MyOwnBundle::layout.html.twig"%}
+{% block content %}
+    <h1>Category edit</h1>
+
+    {{ form(edit_form) }}
+		{{form_errors(edit_form)}}
+
+<ul class="record_actions">
+
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}
