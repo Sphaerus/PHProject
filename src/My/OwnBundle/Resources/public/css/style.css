@@ -5,6 +5,10 @@
 	background-color: #CCCCCC;
 }
 
+.xdebud-error{
+	display: none;
+}
+
 #content{
 	height:500px;
 }
