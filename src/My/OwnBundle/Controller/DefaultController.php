@@ -15,7 +15,7 @@ class DefaultController extends Controller
      * @Template()
      */
     public function indexAction()
-    {
+    {			error_reporting(0);
 			$this->setUser();
 			$em = $this->getDoctrine()->getEntityManager();
 				

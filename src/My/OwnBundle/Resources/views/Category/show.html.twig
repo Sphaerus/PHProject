@@ -8,7 +8,7 @@
 						<div class ="post-options">
 							{% if app.user != "" %}
 								{% if app.user.admin == TRUE %}
-									<form class="delete_section" name="form" method="post" action="/category/{{entity.id}}/section/{{section.id}}/delete"><input type="hidden" name="_method" value="DELETE"><div id="form"><div><button type="submit" id="form_submit" name="form[submit]">Delete {{section.name}}</button></div><input type="hidden" id="form__token" name="form[_token]" value="t5MTBDHd3o5efueo-KeA4Hx4aeOue-Gce7G3DQlP7a8"></div></form>
+									<form class="delete_section" name="form" method="post" action="{{path("section_delete", {"category_id": section.category.id, "id": section.id})}}"><input type="hidden" name="_method" value="DELETE"><div id="form"><div><button type="submit" id="form_submit" name="form[submit]">Delete {{section.name}}</button></div><input type="hidden" id="form__token" name="form[_token]" value="t5MTBDHd3o5efueo-KeA4Hx4aeOue-Gce7G3DQlP7a8"></div></form>
 									<p><a href="{{ path('section_edit', { 'category_id': entity.id, 'id': section.id }) }}">Edit</a></p>
 								{% endif %}	
 							{% endif %}

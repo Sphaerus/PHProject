@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+	<html>
 	<head>
 		<title>Forum</title>
-		<meta charset ="UTF-8"/>
-		<link rel="stylesheet" href="{{asset('bundles/myown/css/style.css')}}" media="screen"/>
+		<meta charset ="UTF-8">
+		<link rel="stylesheet" href="{{asset('bundles/myown/css/style.css')}}" media="screen">
 	</head>	
 	<body>
 		
@@ -15,8 +15,9 @@
 				<a href="{{path('fos_user_registration_register')}}">Register</a>
 			{% else %}
 				{{app.user.username}}
-				<a href="/logout">Log out</a>
-				<a href="/profile">My profile</a>
+				<a href="{{path("fos_user_security_logout")}}">Log out</a>
+				<a href="{{path("fos_user_profile_show")}}">My profile</a>
+
 				{% if app.user.admin == TRUE %}
 					<a href="{{path('users')}}">Users</a>
 				{% endif %}	

@@ -23,7 +23,7 @@
 			{% if app.user !="" %}
 				{% if app.user.admin == TRUE or app.user.id == post.user.id %}
 					<div class ="post-options">
-						<form name="form" method="post" action="/category/{{topic.section.category.id}}/section/{{topic.section.id}}/topic/{{topic.id}}/post/{{post.id}}/delete"><input type="hidden" name="_method" value="DELETE"><div id="form"><div><button type="submit" id="form_submit" name="form[submit]">Delete</button></div><input type="hidden" id="form__token" name="form[_token]" value="t5MTBDHd3o5efueo-KeA4Hx4aeOue-Gce7G3DQlP7a8"></div></form>
+						<form name="form" method="post" action="{{path("post_delete", {"category_id": post.topic.section.category.id, "section_id": post.topic.section.id, "topic_id": post.topic.id, "id": post.id})}}"><input type="hidden" name="_method" value="DELETE"><div id="form"><div><button type="submit" id="form_submit" name="form[submit]">Delete</button></div><input type="hidden" id="form__token" name="form[_token]" value="t5MTBDHd3o5efueo-KeA4Hx4aeOue-Gce7G3DQlP7a8"></div></form>
 						<p><a href="{{path("post_edit", {"category_id": topic.section.category.id, "section_id": topic.section.id, "topic_id": topic.id, "id": post.id})}}">Edit</a></p>
 				
 					</div>
